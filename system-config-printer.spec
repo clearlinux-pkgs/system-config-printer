@@ -6,7 +6,7 @@
 #
 Name     : system-config-printer
 Version  : 1.5.15
-Release  : 9
+Release  : 10
 URL      : https://github.com/OpenPrinting/system-config-printer/releases/download/v1.5.15/system-config-printer-1.5.15.tar.xz
 Source0  : https://github.com/OpenPrinting/system-config-printer/releases/download/v1.5.15/system-config-printer-1.5.15.tar.xz
 Source1  : https://github.com/OpenPrinting/system-config-printer/releases/download/v1.5.15/system-config-printer-1.5.15.tar.xz.asc
@@ -127,7 +127,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1643313397
+export SOURCE_DATE_EPOCH=1643318430
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -136,7 +136,8 @@ export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
 export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
-%configure --disable-static --with-udev-rules
+%configure --disable-static --with-udev-rules \
+--sysconfdir=/usr/share/system-config-printer
 make  %{?_smp_mflags}
 
 %check
@@ -147,7 +148,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1643313397
+export SOURCE_DATE_EPOCH=1643318430
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/system-config-printer
 cp %{_builddir}/system-config-printer-1.5.15/COPYING %{buildroot}/usr/share/package-licenses/system-config-printer/4cc77b90af91e615a64ae04893fdffa7939db84c
@@ -175,8 +176,6 @@ cp %{_builddir}/system-config-printer-1.5.15/COPYING %{buildroot}/usr/share/pack
 /usr/share/applications/system-config-printer.desktop
 /usr/share/dbus-1/interfaces/org.fedoraproject.Config.Printing.xml
 /usr/share/dbus-1/services/org.fedoraproject.Config.Printing.service
-/usr/share/dbus-1/system.d/com.redhat.NewPrinterNotification.conf
-/usr/share/dbus-1/system.d/com.redhat.PrinterDriversInstaller.conf
 /usr/share/metainfo/system-config-printer.appdata.xml
 /usr/share/system-config-printer/HIG.py
 /usr/share/system-config-printer/OpenPrintingRequest.py
@@ -190,7 +189,10 @@ cp %{_builddir}/system-config-printer-1.5.15/COPYING %{buildroot}/usr/share/pack
 /usr/share/system-config-printer/authconn.py
 /usr/share/system-config-printer/check-device-ids.py
 /usr/share/system-config-printer/config.py
+/usr/share/system-config-printer/cupshelpers/preferreddrivers.xml
 /usr/share/system-config-printer/cupspk.py
+/usr/share/system-config-printer/dbus-1/system.d/com.redhat.NewPrinterNotification.conf
+/usr/share/system-config-printer/dbus-1/system.d/com.redhat.PrinterDriversInstaller.conf
 /usr/share/system-config-printer/debug.py
 /usr/share/system-config-printer/dnssdresolve.py
 /usr/share/system-config-printer/errordialogs.py
@@ -259,6 +261,7 @@ cp %{_builddir}/system-config-printer-1.5.15/COPYING %{buildroot}/usr/share/pack
 /usr/share/system-config-printer/ui/WaitWindow.ui
 /usr/share/system-config-printer/ui/statusicon_popupmenu.ui
 /usr/share/system-config-printer/userdefault.py
+/usr/share/system-config-printer/xdg/autostart/print-applet.desktop
 /usr/share/system-config-printer/xml/preferreddrivers.rng
 /usr/share/system-config-printer/xml/validate.py
 

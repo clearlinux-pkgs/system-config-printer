@@ -1,1 +1,2 @@
 --with-udev-rules
+--sysconfdir=/usr/share/system-config-printer
