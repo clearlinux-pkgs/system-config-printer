@@ -4,7 +4,7 @@
 #
 Name     : system-config-printer
 Version  : 1.5.16
-Release  : 11
+Release  : 12
 URL      : https://github.com/OpenPrinting/system-config-printer/releases/download/v1.5.16/system-config-printer-1.5.16.tar.xz
 Source0  : https://github.com/OpenPrinting/system-config-printer/releases/download/v1.5.16/system-config-printer-1.5.16.tar.xz
 Summary  : No detailed summary available
